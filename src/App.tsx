@@ -67,6 +67,10 @@ function App() {
     }
   }, [selectedPokemonLink])
 
+  useEffect(() => {
+    window.scroll({top: 0, behavior: 'smooth'})
+  }, [selectedPokemon])
+
   // Functions
   const prevPage = () => {
     setListOffset(listOffset - pageSize)

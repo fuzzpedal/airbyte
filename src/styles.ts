@@ -9,8 +9,8 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginTop: 50,
-    marginBottom: 50,
+    paddingTop: 30,
+    paddingBottom: 20,
   },
 
   selectedPokemon: {
