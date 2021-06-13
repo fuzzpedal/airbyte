@@ -4,7 +4,6 @@ import { HeightMetric } from './components/HeightMetric'
 import { WeightMetric } from './components/WeightMetric'
 import { XPMetric } from './components/XPMetric'
 
-import css from './index.css'
 import styles from './styles'
 
 
@@ -78,26 +77,26 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div style={styles.root}>
       <header style={styles.header}>
-        {selectedPokemon && (
-          <div>
-            <div>Selected pokemon: {selectedPokemon.name}</div>
-            <HeightMetric height={selectedPokemon.height} />
-            <WeightMetric weight={selectedPokemon.weight} />
-            <XPMetric xp={selectedPokemon.base_experience} />
-          </div>
-        )}
+        <div>
+          <div>Selected pokemon: {selectedPokemon?.name || '-'}</div>
+          <HeightMetric height={selectedPokemon?.height} />
+          <WeightMetric weight={selectedPokemon?.weight} />
+          <XPMetric xp={selectedPokemon?.base_experience} />
+        </div>
       </header>
       <main>
-        {pokemonList?.results.map((pokemonLink: PokemonLink) => (
-          <p
-            key={pokemonLink.name}
-            style={styles.pokemonLink}
-            onClick={() => setSelectedPokemonLink(pokemonLink)}>
-              {pokemonLink.name}
-          </p>
-        ))}
+        <ol style={styles.pokemonList}>
+          {pokemonList?.results.map((pokemonLink: PokemonLink) => (
+
+            <li style={styles.pokemonListItem}
+              key={pokemonLink.name}
+              onClick={() => setSelectedPokemonLink(pokemonLink)}>
+                {pokemonLink.name}
+            </li>
+          ))}
+        </ol>
         {pokemonList?.previous && (
           <p onClick={prevPage}>Prev {pageSize}</p>
         )}

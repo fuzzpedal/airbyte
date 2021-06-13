@@ -2,7 +2,7 @@ import styles from './styles'
 
 
 type XPMetricProps = {
-	xp: number
+	xp: number|undefined
 }
 
 export const XPMetric = (props: XPMetricProps) => {
@@ -10,7 +10,7 @@ export const XPMetric = (props: XPMetricProps) => {
 
 	return (
 		<div style={styles.root}>
-			Base XP {xp}
+			Base XP {xp || '-'}
 		</div>
 	)
 }
