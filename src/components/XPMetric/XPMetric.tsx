@@ -1,7 +1,5 @@
 import styles from './styles'
 
-import { ReactComponent as Star } from './star.svg';
-import starUrl from './star.svg'
 
 type XPMetricProps = {
 	colour: string

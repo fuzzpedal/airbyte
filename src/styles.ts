@@ -38,6 +38,8 @@ const styles = {
     padding: 20,
     borderBottom: '1px solid #eee',
     cursor: 'pointer',
+    display: 'flex',
+    justifyContent: 'space-between',
   },
 
   pokemonListNumber: {

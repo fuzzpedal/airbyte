@@ -4,6 +4,8 @@ import { HeightMetric } from './components/HeightMetric'
 import { WeightMetric } from './components/WeightMetric'
 import { XPMetric } from './components/XPMetric'
 
+import { ReactComponent as Star } from './components/XPMetric/star.svg';
+
 import styles from './styles'
 
 
@@ -91,8 +93,13 @@ function App() {
             <li style={styles.pokemonListItem}
               key={pokemonLink.name}
               onClick={() => setSelectedPokemonLink(pokemonLink)}>
-                <span style={styles.pokemonListNumber}>{i + listOffset + 1}</span>
-                <span style={styles.pokemonListName}> {pokemonLink.name}</span>
+                <div>
+                  <span style={styles.pokemonListNumber}>{i + listOffset + 1}</span>
+                  <span style={styles.pokemonListName}> {pokemonLink.name}</span>
+                </div>
+                {selectedPokemon?.name === pokemonLink.name && (
+                  <Star width={20} />
+                )}
             </li>
           ))}
         </ol>
