@@ -12,7 +12,7 @@ export const HeightMetric = (props: HeightMetricProps) => {
 
 	return (
 		<div style={styles.root}>
-			{h}
+			<p style={styles.value}>{h}</p>
 		</div>
 	)
 }

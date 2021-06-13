@@ -79,31 +79,33 @@ function App() {
   return (
     <div style={styles.root}>
       <header style={styles.header}>
-        <div>
-          <div>Selected pokemon: {selectedPokemon?.name || '-'}</div>
+          <div style={styles.selectedPokemon}>{selectedPokemon?.name || 'Select'}</div>
           <HeightMetric height={selectedPokemon?.height} />
-          <WeightMetric weight={selectedPokemon?.weight} />
-          <XPMetric xp={selectedPokemon?.base_experience} />
-        </div>
+          <WeightMetric colour="#39c" weight={selectedPokemon?.weight} />
+          <XPMetric colour="#39c" xp={selectedPokemon?.base_experience} />
       </header>
       <main>
         <ol style={styles.pokemonList}>
-          {pokemonList?.results.map((pokemonLink: PokemonLink) => (
+          {pokemonList?.results.map((pokemonLink: PokemonLink, i: number) => (
 
             <li style={styles.pokemonListItem}
               key={pokemonLink.name}
               onClick={() => setSelectedPokemonLink(pokemonLink)}>
-                {pokemonLink.name}
+                <span style={styles.pokemonListNumber}>{i + listOffset + 1}</span>
+                <span style={styles.pokemonListName}> {pokemonLink.name}</span>
             </li>
           ))}
         </ol>
-        {pokemonList?.previous && (
-          <p onClick={prevPage}>Prev {pageSize}</p>
-        )}
-        <p>Results {listOffset} to {listOffset + pageSize}</p>
-        {pokemonList?.next && (
-          <p onClick={nextPage}>Next {pageSize}</p>
-        )}
+
+        <div style={styles.pagination}>
+          {pokemonList?.previous ? (
+            <p style={styles.paginationLink} onClick={prevPage}>&lt; Previous {pageSize}</p>
+          ) : <div />}
+          <p>Results {listOffset + 1} to {listOffset + pageSize}</p>
+          {pokemonList?.next && (
+            <p style={styles.paginationLink} onClick={nextPage}>Next {pageSize} &gt;</p>
+          )}
+        </div>
       </main>
     </div>
   )

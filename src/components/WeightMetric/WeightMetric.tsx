@@ -2,18 +2,19 @@ import styles from './styles'
 
 
 type WeightMetricProps = {
+	colour: string
 	weight: number|undefined
 }
 
 export const WeightMetric = (props: WeightMetricProps) => {
-	const { weight } = props
+	const { colour, weight } = props
 
 	const radius = 100
 	const stroke = 20
 	const normalizedRadius = radius - stroke * 2
 	const circumference = normalizedRadius * 2 * Math.PI
 
-	let w = '-'
+	let w = ''
 	let strokeDashoffset = 0
 	if (weight) {
 		const progress = weight / 100
@@ -44,7 +45,7 @@ export const WeightMetric = (props: WeightMetricProps) => {
 						/>
 					{weight && (
 					<circle
-						stroke="#49c"
+						stroke={colour}
 						fill="transparent"
 						strokeWidth={stroke}
 						strokeDasharray={`${circumference} ${circumference}`}

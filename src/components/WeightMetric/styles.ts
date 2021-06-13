@@ -1,6 +1,5 @@
-export default {
+const styles = {
 	root: {
-		margin: 20,
 		boxShadow: '0px 0px 10px #ccc',
 		borderRadius: 10,
 		color: '#444',
@@ -17,6 +16,7 @@ export default {
 	},
 
 	value: {
+		fontWeight: 'bold',
 		fontSize: 24,
 		textAlign: 'center',
 		flex: 1,
@@ -32,3 +32,6 @@ export default {
 		transform: 'rotate(-90deg)',
 	}
 } as const
+
+
+export default styles
